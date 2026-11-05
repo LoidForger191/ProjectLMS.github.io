@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Learn on your terms · Northstar{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> A better way to grow</p>
+      <h1>Small steps.<br><em>Big horizons.</em></h1>
+      <p class="hero-description">Build practical skills with thoughtful courses, welcoming teachers, and a learning path that moves at your pace.</p>
+      <div class="hero-actions"><a class="button" href="{% url 'course_catalog' %}">Explore courses <span aria-hidden="true">→</span></a><a class="text-link" href="{% url 'register' %}">Start learning free</a></div>
+      <div class="hero-note"><span class="avatar-stack"><i>A</i><i>M</i><i>J</i></span><span>Curiosity looks good on you.</span></div>
+    </div>
+    <div class="hero-art" aria-label="Illustration of books and a plant">
+      <div class="art-sun"></div><div class="art-window"><span></span><span></span><span></span><span></span></div>
+      <div class="art-plant"><i></i><i></i><i></i><b></b></div>
+      <div class="art-books"><i></i><i></i><i></i></div>
+      <div class="art-note"><span>YOUR NEXT<br>CHAPTER</span><strong>starts here ↗</strong></div>
+    </div>
+  </div>
+</section>
+<section class="section container">
+  <div class="section-heading"><div><p class="eyebrow">A place to begin</p><h2>Find your next <em>favorite subject.</em></h2></div><a class="text-link" href="{% url 'course_catalog' %}">Browse all courses <span aria-hidden="true">→</span></a></div>
+  {% if courses %}<div class="course-grid">{% for course in courses %}{% include "learning/_course_card.html" %}{% endfor %}</div>
+  {% else %}<div class="empty-state"><span class="empty-icon">✳</span><h3>Good things are taking shape.</h3><p>New courses are on the way. Check back soon or create an account to start your learning journey.</p><a class="button button-outline" href="{% url 'register' %}">Create an account</a></div>{% endif %}
+</section>
+<section class="promise-band"><div class="container promise-inner"><p class="eyebrow">Made for real life</p><h2>Learning should fit your life,<br><em>not the other way around.</em></h2><div class="promise-points"><span>01 &nbsp; Learn at your own pace</span><span>02 &nbsp; Practice as you go</span><span>03 &nbsp; See your progress</span></div></div></section>
+{% endblock %}

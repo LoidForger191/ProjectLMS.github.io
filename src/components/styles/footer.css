@@ -1,8 +1,0 @@
-
-.site-footer { min-height: 85px; padding: 22px 7.2%; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #818278; font-size: 9px; letter-spacing: .03em; }
-.brand-footer { color: var(--green); font-size: 12px; }
-.site-footer p { margin: 0; font: italic 14px var(--serif); }
-.site-footer > span { white-space: nowrap; }
-@media (max-width: 700px) {
-  .site-footer { padding: 24px 6%; flex-wrap: wrap; }
-  .site-footer p { order: 3; flex-basis: 100%; } }

@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Create your account · Northstar{% endblock %}
+{% block content %}
+<section class="auth-section"><div class="auth-card"><p class="eyebrow">Your next chapter</p><h1>Create your <em>account.</em></h1><p class="auth-intro">Join a community of curious minds. You can start learning right away.</p><form method="post">{% csrf_token %}{% for field in form %}<div class="field-group"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% if field.help_text %}<small class="field-help">{{ field.help_text|safe }}</small>{% endif %}{% for error in field.errors %}<small class="field-error">{{ error }}</small>{% endfor %}</div>{% endfor %}<button class="button button-full" type="submit">Create account <span>→</span></button></form><p class="auth-switch">Already have an account? <a href="{% url 'login' %}">Log in</a></p></div></section>
+{% endblock %}

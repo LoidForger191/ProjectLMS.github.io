@@ -1,0 +1,8 @@
+<article class="course-card">
+  <a class="course-card-link" href="{% url 'course_detail' course.slug %}">
+    <div class="course-art">
+      <span class="category-pill">{{ course.category.name }}</span><span class="course-art-symbol" aria-hidden="true">{% cycle "✳" "◒" "⌘" "✦" %}</span>
+    </div>
+    <div class="course-card-body"><p class="course-meta">COURSE &nbsp;·&nbsp; {{ course.lessons.count }} LESSON{{ course.lessons.count|pluralize|upper }}</p><h3>{{ course.title }}</h3><p class="course-summary">{{ course.summary }}</p><div class="course-byline"><span class="teacher-avatar">{{ course.instructor.first_name|default:course.instructor.username|slice:":1"|upper }}</span><span>{{ course.instructor.get_full_name|default:course.instructor.username }}</span><span class="card-arrow" aria-hidden="true">↗</span></div></div>
+  </a>
+</article>

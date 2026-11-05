@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} · Northstar{% endblock %}
+{% block content %}
+<section class="page-hero page-hero-short"><div class="container"><p class="eyebrow">Northstar workspace</p><h1>{{ title }}</h1></div></section>
+<section class="section container narrow-container"><form method="post" class="form-card">{% csrf_token %}{% for field in form %}<div class="field-group"><label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %}<span class="required-mark">*</span>{% endif %}</label>{{ field }}{% if field.help_text %}<small class="field-help">{{ field.help_text }}</small>{% endif %}{% for error in field.errors %}<small class="field-error">{{ error }}</small>{% endfor %}</div>{% endfor %}{% if form.non_field_errors %}<div class="form-errors">{{ form.non_field_errors }}</div>{% endif %}<div class="form-actions"><button class="button" type="submit">{% if add_another %}Save question{% else %}Save changes{% endif %}</button>{% if add_another %}<button class="button button-outline" type="submit" name="add_another" value="1">Save and add another</button>{% endif %}<a class="text-link" href="{% url 'dashboard' %}">Cancel</a></div></form></section>
+{% endblock %}
