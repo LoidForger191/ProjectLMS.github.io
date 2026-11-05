@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Explore courses · Northstar{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><p class="eyebrow">Learn something new</p><h1>Explore <em>courses.</em></h1><p>Follow your curiosity. Find a course to help you take the next step.</p></div></section>
+<section class="section container">
+  <form method="get" class="filter-bar">
+    <label class="search-field"><span class="visually-hidden">Search courses</span><input type="search" name="q" value="{{ search }}" placeholder="Try “design” or “writing”"><button type="submit" aria-label="Search courses">⌕</button></label>
+    <label class="select-field"><span class="visually-hidden">Category</span><select name="category" onchange="this.form.submit()"><option value="">All subjects</option>{% for category in categories %}<option value="{{ category.slug }}" {% if selected_category == category.slug %}selected{% endif %}>{{ category.name }}</option>{% endfor %}</select></label>
+  </form>
+  {% if courses %}<div class="course-grid">{% for course in courses %}{% include "learning/_course_card.html" %}{% endfor %}</div>
+  {% else %}<div class="empty-state"><span class="empty-icon">⌕</span><h3>No courses found</h3><p>Try a different search or select another subject.</p><a class="text-link" href="{% url 'course_catalog' %}">Clear filters</a></div>{% endif %}
+</section>
+{% endblock %}

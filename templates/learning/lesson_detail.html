@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}{{ lesson.title }} · Northstar{% endblock %}
+{% block content %}
+<section class="page-hero page-hero-short"><div class="container"><a class="back-link" href="{% url 'course_detail' lesson.course.slug %}">← {{ lesson.course.title }}</a><p class="eyebrow">Lesson {{ lesson.position }}</p><h1>{{ lesson.title }}</h1></div></section>
+<section class="section container narrow-container"><article class="lesson-content rich-copy">{{ lesson.content|linebreaks }}</article>{% if lesson.material_url %}<a class="resource-card" href="{{ lesson.material_url }}" target="_blank" rel="noopener noreferrer"><span class="list-icon">↗</span><span><strong>Open lesson resource</strong><small>Opens in a new tab</small></span><b>↗</b></a>{% endif %}{% if enrollment %}<div class="lesson-completion">{% if is_completed %}<span class="completed-label">✓ Lesson completed</span>{% else %}<form method="post" action="{% url 'lesson_complete' lesson.id %}">{% csrf_token %}<button class="button" type="submit">Mark lesson complete</button></form>{% endif %}</div>{% endif %}</section>
+{% endblock %}
