@@ -1,0 +1,32 @@
+
+.media-dialog { position: fixed; inset: 0; max-width: min(92vw, 1050px); max-height: 90vh; padding: 0; border: 0; background: var(--cream); color: var(--green); box-shadow: 0 18px 80px rgb(0 0 0 / 35%); overflow: visible; }
+.media-dialog::backdrop { background: rgb(10 26 21 / 78%); backdrop-filter: blur(3px); }
+.dialog-close { position: absolute; z-index: 1; right: 12px; top: 12px; width: 40px; height: 40px; display: grid; place-items: center; border: 0; border-radius: 50%; background: var(--cream); color: var(--green); font-size: 27px; cursor: pointer; }
+.gallery-modal-image { max-width: 90vw; max-height: 88vh; object-fit: contain; }
+.dish-dialog { width: min(780px, 92vw); }
+.dish-modal-content { display: grid; grid-template-columns: 1fr 1fr; min-height: 360px; }
+.dish-modal-content > img { width: 100%; height: 100%; min-height: 360px; object-fit: cover; }
+.dish-modal-content > div { align-self: center; padding: 48px; }
+.dish-modal-content h2 { font-size: 36px; margin-bottom: 15px; }
+.dish-modal-content > div > p:not(.eyebrow) { font-size: 12px; color: #70736a; line-height: 1.8; }
+.dish-modal-bottom { padding-top: 19px; border-top: 1px solid #d9d7cd; display: flex; justify-content: space-between; color: #70736a; font-size: 10px; }
+.dish-modal-bottom strong { color: var(--green); font-size: 13px; }
+.allergen-note { margin: 17px 0 0; color: #777a70; font-size: 9px; line-height: 1.6; }
+.gallery-lightbox-content { position: relative; display: grid; min-height: 250px; place-items: center; padding: 36px 52px 0; }
+.gallery-modal-image { max-width: 100%; max-height: 78vh; }
+.lightbox-step { position: absolute; z-index: 2; top: 50%; display: grid; width: 38px; height: 38px; place-items: center; border: 0; border-radius: 50%; background: var(--cream); color: var(--green); cursor: pointer; font-size: 18px; transform: translateY(-50%); }
+.lightbox-previous { left: 8px; }
+.lightbox-next { right: 8px; }
+.lightbox-caption { margin: 0; padding: 12px 16px 16px; color: var(--green); font-size: 10px; text-align: center; }
+@media (max-width: 700px) {
+  .gallery-lightbox-content { padding: 38px 12px 0; }
+  .lightbox-step { top: auto; bottom: 12px; transform: none; }
+  .lightbox-previous { left: calc(50% - 48px); }
+  .lightbox-next { right: calc(50% - 48px); }
+  .lightbox-caption { padding-bottom: 58px; }
+}
+@media (max-width: 700px) {
+  .dish-modal-content { grid-template-columns: 1fr; }
+  .dish-modal-content > img { height: 230px; min-height: 0; }
+  .dish-modal-content > div { padding: 30px 25px; }
+  .dish-modal-content h2 { font-size: 31px; } }
