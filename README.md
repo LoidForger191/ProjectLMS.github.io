@@ -1,4 +1,14 @@
-# Northstar Learning
+# ProjectRestuarant.github.io
+
+This repository contains the Aster & Olive restaurant website and the Northstar Learning Django application.
+
+## Restaurant website
+
+The React/Vite website is built and deployed to GitHub Pages by `.github/workflows/pages.yml`.
+
+Run it locally with `npm ci` followed by `npm run dev`, or create a production build with `npm run build`.
+
+## Northstar Learning
 
 A responsive learning management system built with Django, Django Templates, HTML, CSS, and lightweight JavaScript. SQLite is the development database; no frontend framework or third-party Django package is required.
 
@@ -47,6 +57,6 @@ Public registration always creates a student account. Role checks and enrollment
 
 Run the automated checks with `python manage.py check`, `python manage.py makemigrations --check --dry-run`, and `python manage.py test`.
 
-## Deployment note
+## Django deployment note
 
-This application requires a Python-capable Django host; GitHub Pages only serves static files and cannot run its authentication or database-backed features. Set `DJANGO_SECRET_KEY`, `DJANGO_ALLOWED_HOSTS`, and `DJANGO_DEBUG=false` in production, use a durable production database, and configure a real email backend for password resets. `config/settings.py` uses SQLite and console email for local development.
+GitHub Pages serves the static React restaurant website; it cannot run the Django application's authentication or database-backed features. Host the Django app on a Python-capable service, set `DJANGO_SECRET_KEY`, `DJANGO_ALLOWED_HOSTS`, and `DJANGO_DEBUG=false` in production, use a durable production database, and configure a real email backend for password resets. `config/settings.py` uses SQLite and console email for local development.
